@@ -47,6 +47,126 @@ internal class OpenAiEndpointProvider : IOpenAiEndpointProvider
         return $"{_apiVersion}/audio/speech";
     }
 
+    public string AssistantCreate()
+    {
+        return $"{_apiVersion}/assistants";
+    }
+
+    public string AssistantRetrieve(string assistantId)
+    {
+        return $"{_apiVersion}/assistants/{assistantId}";
+    }
+
+    public string AssistantModify(string assistantId)
+    {
+        return $"{_apiVersion}/assistants/{assistantId}";
+    }
+
+    public string AssistantDelete(string assistantId)
+    {
+        return $"{_apiVersion}/assistants/{assistantId}";
+    }
+
+    public string AssistantList()
+    {
+        return $"{_apiVersion}/assistants";
+    }
+    
+    public string ThreadCreate()
+    {
+        return $"{_apiVersion}/threads";
+    }
+    
+    public string ThreadRetrieve(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}";
+    }
+    
+    public string ThreadModify(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}";
+    }
+    
+    public string ThreadDelete(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}";
+    }
+    
+    public string MessageCreate(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages";
+    }
+        
+    public string MessageRetrieve(string threadId, string messageId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages/{messageId}";
+    }
+    
+    public string MessageModify(string threadId, string messageId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages/{messageId}";
+    }
+    
+    public string MessageList(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages";
+    }
+    
+    public string MessageFileRetrieve(string threadId, string messageId, string fileId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages/{messageId}/files/{fileId}";
+    }
+    
+    public string MessageFileList(string threadId, string messageId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/messages/{messageId}/files";
+    }
+    
+    public string RunCreate(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs";
+    }
+    
+    public string RunRetrieve(string threadId, string runId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}";
+    }
+    
+    public string RunModify(string threadId, string runId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}";
+    }
+    
+    public string RunList(string threadId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs";
+    }
+    
+    public string RunSubmitToolOutputs(string threadId, string runId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}/submit_tool_outputs";
+    }
+    
+    public string RunCancel(string threadId, string runId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}/cancel";
+    }
+    
+    public string ThreadAndRunCreate()
+    {
+        return $"{_apiVersion}/threads/runs";
+    }
+    
+    public string RunStepRetrieve(string threadId, string runId, string stepId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}/steps/{stepId}";
+    }
+    
+    public string RunStepList(string threadId, string runId)
+    {
+        return $"{_apiVersion}/threads/{threadId}/runs/{runId}/steps";
+    }
+
     public string EditCreate()
     {
         return $"{_apiVersion}/edits";

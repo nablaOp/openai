@@ -14,6 +14,21 @@ public record DataBaseResponse<T> : BaseResponse
 {
     [JsonPropertyName("data")] public T? Data { get; set; }
 }
+
+public record DataListBaseResponse<T> : DataBaseResponse<T>
+{
+    [JsonPropertyName("object")] public string? ObjectTypeName { get; set; }
+    
+    [JsonPropertyName("first_id")] 
+    public string? FirstId { get; set; }
+    
+    [JsonPropertyName("last_id")] 
+    public string? LastId { get; set; }
+    
+    [JsonPropertyName("has_more")] 
+    public bool HasMore { get; set; }
+}
+
 //public record Error
 //{
 //    [JsonPropertyName("code")] public string? Code { get; set; }

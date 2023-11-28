@@ -34,4 +34,28 @@ internal interface IOpenAiEndpointProvider
     string AudioCreateTranscription();
     string AudioCreateTranslation();
     string AudioCreateSpeech();
+    string AssistantCreate();
+    string AssistantModify(string assistantId);
+    string AssistantRetrieve(string assistantId);
+    string AssistantDelete(string assistantId);
+    string AssistantList();
+    string ThreadCreate();
+    string ThreadRetrieve(string threadId);
+    string ThreadModify(string threadId);
+    string ThreadDelete(string threadId);
+    string MessageCreate(string threadId);
+    string MessageRetrieve(string threadId, string messageId);
+    string MessageModify(string threadId, string messageId);
+    string MessageList(string threadId);
+    string MessageFileRetrieve(string threadId, string messageId, string fileId);
+    string MessageFileList(string threadId, string messageId);
+    string RunCreate(string threadId);
+    string RunRetrieve(string threadId, string runId);
+    string RunModify(string threadId, string runId);
+    string RunList(string threadId);
+    string RunSubmitToolOutputs(string threadId, string runId);
+    string RunCancel(string threadId, string runId);
+    string ThreadAndRunCreate();
+    string RunStepRetrieve(string threadId, string runId, string stepId);
+    string RunStepList(string threadId, string runId);
 }

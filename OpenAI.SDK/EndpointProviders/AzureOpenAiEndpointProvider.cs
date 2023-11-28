@@ -188,6 +188,31 @@ internal class AzureOpenAiEndpointProvider : IOpenAiEndpointProvider
         return $"{Prefix}/audio/speech{QueryString}";
     }
 
+    public string AssistantCreate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public string AssistantRetrieve(string assistantId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string AssistantModify(string assistantId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string AssistantDelete(string assistantId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string AssistantList()
+    {
+        throw new NotImplementedException();
+    }
+
     private string Files()
     {
         return $"{Prefix}/files{QueryString}";
