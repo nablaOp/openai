@@ -4,66 +4,74 @@ namespace OpenAI.Interfaces;
 
 public interface IAssistantService
 {
-    Task<AssistantResponse> CreateAssistant(AssistantCreateRequest request, string? modelId = null, CancellationToken cancellationToken = default);
-    
-    Task<AssistantResponse> RetrieveAssistant(string assistantId, CancellationToken cancellationToken = default);
+    Task<AssistantCreateResponse> CreateAssistant(AssistantCreateRequest request, string? modelId = null,
+        CancellationToken cancellationToken = default);
 
-    Task<AssistantResponse> ModifyAssistant(string assistantId, AssistantModifyRequest request, CancellationToken cancellationToken = default);
-    
-    Task<AssistantResponse> DeleteAssistant(string assistantId, CancellationToken cancellationToken = default);
-    
+    Task<AssistantRetrieveResponse>
+        RetrieveAssistant(string assistantId, CancellationToken cancellationToken = default);
+
+    Task<AssistantModifyResponse> ModifyAssistant(string assistantId, AssistantModifyRequest request,
+        CancellationToken cancellationToken = default);
+
+    Task<AssistantDeleteResponse?> DeleteAssistant(string assistantId, CancellationToken cancellationToken = default);
+
     Task<AssistantListResponse> ListAssistants(CancellationToken cancellationToken = default);
 }
 
 public interface IThreadService
 {
-    Task<ThreadResponse> CreateThread(ThreadCreateRequest request, string? modelId = null, CancellationToken cancellationToken = default);
-    
-    Task<ThreadResponse> RetrieveThread(string threadId, CancellationToken cancellationToken = default);
+    Task<ThreadCreateResponse> CreateThread(ThreadCreateRequest request, CancellationToken cancellationToken = default);
 
-    Task<ThreadResponse> ModifyThread(string threadId, ThreadModifyRequest request, CancellationToken cancellationToken = default);
-    
-    Task<ThreadResponse> DeleteThread(string threadId, CancellationToken cancellationToken = default);
+    Task<ThreadRetrieveResponse> RetrieveThread(string threadId, CancellationToken cancellationToken = default);
+
+    Task<ThreadModifyResponse> ModifyThread(string threadId, ThreadModifyRequest request,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadDeleteResponse?> DeleteThread(string threadId, CancellationToken cancellationToken = default);
 }
 
 public interface IMessageService
 {
-    Task<MessageResponse> CreateMessage(MessageCreateRequest request, string? modelId = null, CancellationToken cancellationToken = default);
-    
-    Task<MessageResponse> RetrieveMessage(string messageId, CancellationToken cancellationToken = default);
+    Task<ThreadMessageCreateResponse> CreateMessage(string threadId, ThreadMessageCreateRequest request,
+        CancellationToken cancellationToken = default);
 
-    Task<MessageResponse> ModifyMessage(string messageId, MessageModifyRequest request, CancellationToken cancellationToken = default);
-    
-    Task<MessageListResponse> ListMessages(CancellationToken cancellationToken = default);
-    
-    Task<MessageFileResponse> RetrieveMessageFile(string messageId, CancellationToken cancellationToken = default);
-    
-    Task<MessageFileListResponse> ListMessageFiles(CancellationToken cancellationToken = default);
+    Task<ThreadMessageRetrieveResponse> RetrieveMessage(string threadId, string messageId,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadMessageModifyResponse> ModifyMessage(string threadId, string messageId,
+        ThreadMessageModifyRequest request, CancellationToken cancellationToken = default);
+
+    Task<ThreadMessageListResponse> ListMessages(string threadId, CancellationToken cancellationToken = default);
+
+    Task<ThreadMessageRetrieveFileResponse> RetrieveMessageFile(string threadId, string messageId, string fileId,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadMessageListFileResponse> ListMessageFiles(string threadId, string messageId,
+        CancellationToken cancellationToken = default);
 }
 
 public interface IRunService
 {
-    Task<RunResponse> CreateRun(RunCreateRequest request, string? modelId = null,
+    Task<ThreadRunCreateResponse> CreateRun(string threadId, ThreadRunCreateRequest request,
         CancellationToken cancellationToken = default);
 
-    Task<RunResponse> RetrieveRun(string runId, CancellationToken cancellationToken = default);
-
-    Task<RunResponse> ModifyRun(string runId, RunModifyRequest request, CancellationToken cancellationToken = default);
-
-    Task<RunResponse> DeleteRun(string runId, CancellationToken cancellationToken = default);
-
-    Task<RunListResponse> ListRuns(CancellationToken cancellationToken = default);
-
-    Task<RunFileResponse> SubmitToolOutputs(string threadId, string runId,
+    Task<ThreadRunRetrieveResponse> RetrieveRun(string threadId, string runId,
         CancellationToken cancellationToken = default);
 
-    Task<RunResponse> CancelRun(string threadId, string runId, CancellationToken cancellationToken = default);
-
-    Task<object> CreateThreadAndRun(CancellationToken cancellationToken = default);
-
-    Task<object> RetrieveRunStep(string threadId, string runId, string stepId,
+    Task<ThreadRunModifyResponse> ModifyRun(string threadId, string runId, ThreadRunModifyRequest request,
         CancellationToken cancellationToken = default);
-    
-    Task<object> ListRunSteps(string threadId, string runId,
+
+    Task<ThreadRunListResponse> ListRuns(string threadId, CancellationToken cancellationToken = default);
+
+    Task<ThreadRunCancelResponse> CancelRun(string threadId, string runId,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadAndRunCreateResponse> CreateThreadAndRun(ThreadAndRunCreateRequest request,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadRunStepRetrieveResponse> RetrieveRunStep(string threadId, string runId, string stepId,
+        CancellationToken cancellationToken = default);
+
+    Task<ThreadRunStepListResponse> ListRunSteps(string threadId, string runId,
         CancellationToken cancellationToken = default);
 }

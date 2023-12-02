@@ -29,7 +29,7 @@ public record OpenAiObject : IOpenAiModels.IId, IOpenAiModels.ICreatedAt
     [JsonPropertyName("created_at")] public int CreatedAt { get; set; }
 }
 
-public record AssistantObjectBase
+public record AssistantObjectBase : IOpenAiModels.IModel
 {
     [JsonPropertyName("model")] public string Model { get; set; } = string.Empty;
     
@@ -232,6 +232,8 @@ public record ThreadAndRunCreateRequest : ThreadRunObjectBase
 {
     [JsonPropertyName("thread")] public ThreadObjectBase Thread { get; set; } = new();
 }
+
+public record ThreadAndRunCreateResponse : ThreadRunObject;
 
 public record ThreadRunStepObject : IOpenAiModels.IId, IOpenAiModels.ICreatedAt
 {

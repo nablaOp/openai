@@ -213,6 +213,101 @@ internal class AzureOpenAiEndpointProvider : IOpenAiEndpointProvider
         throw new NotImplementedException();
     }
 
+    public string ThreadCreate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public string ThreadRetrieve(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string ThreadModify(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string ThreadDelete(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageCreate(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageRetrieve(string threadId, string messageId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageModify(string threadId, string messageId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageList(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageFileRetrieve(string threadId, string messageId, string fileId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string MessageFileList(string threadId, string messageId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunCreate(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunRetrieve(string threadId, string runId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunModify(string threadId, string runId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunList(string threadId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunSubmitToolOutputs(string threadId, string runId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunCancel(string threadId, string runId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string ThreadAndRunCreate()
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunStepRetrieve(string threadId, string runId, string stepId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public string RunStepList(string threadId, string runId)
+    {
+        throw new NotImplementedException();
+    }
+
     private string Files()
     {
         return $"{Prefix}/files{QueryString}";
